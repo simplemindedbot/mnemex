@@ -124,3 +124,6 @@ $RECYCLE.BIN/
 # Linux
 *~
 .directory
+# Marketing docs (local notes only)
+docs/marketing.md
+docs/marketing-checklist.md
