@@ -127,3 +127,5 @@ $RECYCLE.BIN/
 # Marketing docs (local notes only)
 docs/marketing.md
 docs/marketing-checklist.md
+# Ignore entire local marketing directory
+marketing/

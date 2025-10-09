@@ -540,7 +540,7 @@ If you use this work in research, please cite:
   author = {simplemindedbot},
   year = {2025},
   url = {https://github.com/simplemindedbot/mnemex},
-  version = {1.0.0}
+  version = {0.4.0}
 }
 ```
 
@@ -579,7 +579,7 @@ Quick start:
 
 ## Status
 
-**Version:** 1.0.0
+**Version:** 0.4.0
 **Status:** Research implementation - functional but evolving
 
 ### Phase 1 (Complete) ✅

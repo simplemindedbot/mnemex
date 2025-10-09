@@ -884,7 +884,7 @@ What actually happened.
 **Environment:**
 - OS: [e.g., Windows 11, Ubuntu 22.04, macOS 14]
 - Python version: [e.g., 3.10.13]
-- Mnemex version: [e.g., 1.0.0]
+- Mnemex version: [e.g., 0.4.0]
 - Installation method: [uv tool install / editable]
 
 **Logs/Screenshots**
