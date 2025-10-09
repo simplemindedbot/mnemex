@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2025-10-09
 
+## [1.1.0] - 2025-10-09
+
+⚙️ Maintenance & CI Hardening; SBOM; Type Checking
+
+This release focuses on build quality, supply-chain visibility, and DX.
+
+### Added
+- Security workflow now generates a CycloneDX SBOM (JSON artifact) for every push/PR
+- Security Scanning and SBOM badges in README
+- Pre-commit hooks for Ruff (lint + format) and mypy (src-only)
+
+### Changed
+- CI: Re-enabled mypy in tests workflow; type errors resolved across codebase
+- CI: Bandit runs made non-blocking; results displayed in Security Summary
+- CI: Guard workflow blocks built site artifacts (index.html, assets/, search/) on main
+- CI: GitHub Actions updated (actions/checkout v5, codecov-action v5, setup-uv v7)
+- Docs: CONTRIBUTING adds pre-commit instructions; SECURITY documents SBOM
+
+### Fixed
+- Security workflow SBOM flags corrected to use cyclonedx-py with `--output-format` and `--output-file`
+- Ruff formatting and import order across modules; exception chaining (B904) applied
+
+### Notes
+- No breaking API changes
+- Up-to-date branches required for protected merges; all active PRs rebased/merged
+
+
 🎉 **Production Release: Mnemex v1.0.0**
 
 This is the first production-ready release of Mnemex (formerly STM Research/STM Server), a temporal memory management system for AI assistants with human-like memory dynamics.
@@ -144,4 +171,3 @@ MIT License - Full user control and transparency
 ## [0.2.0] - 2025-01-07
 
 - JSONL storage, LTM index, Git integration, and smart prompting docs.
-
