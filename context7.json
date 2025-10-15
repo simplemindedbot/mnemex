@@ -1,0 +1,27 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Mnemex",
+  "description": "Mnemex is a Model Context Protocol (MCP) server providing AI assistants with human-like, temporal memory dynamics that naturally fade unless reinforced, utilizing a two-layer architecture for local short and long-term storage.",
+  "branch": "main",
+  "excludeFolders": [
+    "archive",
+    "archived",
+    "old",
+    "docs/old",
+    "deprecated",
+    "legacy",
+    "previous",
+    "outdated",
+    "superseded",
+    "i18n/*",
+    "zh-*"
+  ],
+  "excludeFiles": [
+    "CHANGELOG.md*",
+    "changelog.md*",
+    "LICENSE.md",
+    "license.md",
+    "CODE_OF_CONDUCT.md",
+    "code_of_conduct.md"
+  ]
+}
