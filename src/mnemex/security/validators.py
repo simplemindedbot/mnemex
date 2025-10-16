@@ -24,6 +24,7 @@ MAX_LIST_LENGTH = 100  # Maximum items in any user-provided list (e.g., memory_i
 # Whitelists for enumerated values
 ALLOWED_TARGETS = {
     "obsidian",  # Obsidian vault with markdown + YAML frontmatter + wikilinks
+    "bear",  # Bear app
     # Future: "markdown", "notion", "roam", etc.
 }
 
@@ -137,7 +138,7 @@ def validate_score(value: float, field_name: str = "score") -> float:
     Raises:
         ValueError: If score is out of range
     """
-    if not isinstance(value, (int, float)):
+    if not isinstance(value, int | float):
         raise ValueError(f"{field_name} must be a number, got {type(value).__name__}")
 
     if not 0.0 <= value <= 1.0:

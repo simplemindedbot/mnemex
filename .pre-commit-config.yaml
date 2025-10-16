@@ -16,8 +16,9 @@ repos:
        - id: mypy
          name: mypy (src)
          args: ["--config-file=pyproject.toml", "src/mnemex"]
-         additional_dependencies: []
+         additional_dependencies: ["pydantic", "python-dotenv", "python-frontmatter", "markdown", "GitPython"]
          pass_filenames: false
+         files: ^src/
   -  repo: local
      hooks:
        - id: fs-sanity-duplicates

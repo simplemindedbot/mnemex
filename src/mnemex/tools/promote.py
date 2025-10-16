@@ -102,6 +102,8 @@ def promote_memory(
         for candidate in candidates:
             if target == "obsidian":
                 result = integration.promote_to_obsidian(candidate.memory)
+            elif target == "bear":
+                result = integration.promote_to_bear(candidate.memory)
             else:
                 return {"success": False, "message": f"Unknown target: {target}"}
 

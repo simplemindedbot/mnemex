@@ -162,6 +162,43 @@ class BasicMemoryIntegration:
                 "path": str(file_path),
             }
 
+    def promote_to_bear(self, memory: Memory) -> dict[str, Any]:
+        """
+        Promote a memory to the Bear app.
+
+        Args:
+            memory: Memory to promote
+
+        Returns:
+            Dictionary with success status and note ID
+        """
+        try:
+            from bear import create
+        except ImportError:
+            return {
+                "success": False,
+                "message": "Bear app not installed or accessible",
+            }
+
+        title = self._sanitize_filename(memory.content)
+        if not title:
+            title = f"Memory {memory.id[:8]}"
+
+        text = self._create_markdown_note(memory)
+
+        try:
+            note = create(title=title, text=text)
+            return {
+                "success": True,
+                "message": "Memory promoted to Bear",
+                "path": note["uniqueIdentifier"],
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "message": f"Failed to create Bear note: {e}",
+            }
+
     def get_vault_stats(self) -> dict[str, Any]:
         """Get statistics about the vault."""
         if not self.is_available():

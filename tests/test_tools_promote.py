@@ -405,6 +405,35 @@ class TestPromoteMemory:
             scores = [c["score"] for c in result["candidates"]]
             assert scores == sorted(scores, reverse=True)
 
+    @patch("mnemex.tools.promote.BasicMemoryIntegration")
+    def test_promote_to_bear(self, mock_integration, temp_storage):
+        """Test promoting a memory to Bear."""
+        now = int(time.time())
+        mock_integration_instance = MagicMock()
+        mock_integration_instance.promote_to_bear.return_value = {
+            "success": True,
+            "path": "bear-note-id",
+        }
+        mock_integration.return_value = mock_integration_instance
+
+        test_id = make_test_uuid("mem-bear")
+        high_score_mem = Memory(
+            id=test_id,
+            content="High value memory for Bear",
+            use_count=10,
+            last_used=now,
+            created_at=now - (14 * 86400),  # 14 days old
+            strength=1.5,
+        )
+        temp_storage.save_memory(high_score_mem)
+
+        result = promote_memory(memory_id=test_id, dry_run=False, target="bear")
+
+        assert result["success"] is True
+        assert result["promoted_count"] == 1
+        assert result["promoted_ids"] == [test_id]
+        mock_integration_instance.promote_to_bear.assert_called_once_with(high_score_mem)
+
     def test_promote_preserves_memory_content(self, temp_storage):
         """Test that promotion doesn't modify content."""
         now = int(time.time())

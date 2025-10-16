@@ -76,6 +76,8 @@ warn_unused_ignores = true
 warn_no_return = true
 follow_imports = "normal"
 show_error_codes = true
+plugins = ["pydantic.mypy"]
+disallow_untyped_decorators = false
 
 [[tool.mypy.overrides]]
 module = "sentence_transformers.*"
@@ -89,8 +91,20 @@ ignore_missing_imports = true
 module = "markdown.*"
 ignore_missing_imports = true
 
+
+
 [[tool.mypy.overrides]]
-module = "git.*"
+module = "bear.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "dotenv.*"
+ignore_missing_imports = true
+
+
+
+[[tool.mypy.overrides]]
+module = "mcp.server.fastmcp.*"
 ignore_missing_imports = true
 
 [tool.ruff]
